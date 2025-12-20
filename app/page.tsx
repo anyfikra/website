@@ -207,30 +207,29 @@ export default function Home() {
               <div className="h-px flex-1 bg-gradient-to-l from-neutral-700 to-transparent" />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
               <a href="/delulu-jar" className="group block">
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-6 h-full hover:border-rose-500/40 transition-all duration-400">
+                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-rose-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="absolute top-6 right-6">
+                  <div className="absolute top-5 right-5">
                     <img
                       src="/static/icon-delulu-jar.png"
                       alt="DeluluJar"
-                      className="w-16 h-16 rounded-xl shadow-xl shadow-rose-500/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-400"
+                      className="w-14 h-14 rounded-xl shadow-xl shadow-rose-500/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-400"
                     />
                   </div>
-                  <div className="relative pt-16">
+                  <div className="relative pt-14">
                     <span
-                      className="text-[10px] uppercase tracking-[0.2em] text-rose-400/80 mb-1.5 block"
+                      className="text-[10px] uppercase tracking-[0.2em] text-rose-400/80 mb-1 block"
                       style={{ fontFamily: "'Syne', sans-serif" }}
                     >
                       For Couples
                     </span>
-                    <h3 className="text-xl font-bold text-neutral-50 mb-2">
+                    <h3 className="text-lg font-bold text-neutral-50 mb-1.5">
                       DeluluJar
                     </h3>
-                    <p className="text-neutral-300 text-sm mb-4 leading-relaxed">
-                      A digital memory jar for couples. Save moments, revisit
-                      memories, celebrate your love story.
+                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
+                      A digital memory jar for couples. Save moments, celebrate your love story.
                     </p>
                     <div className="flex items-center gap-2 text-rose-400 group-hover:gap-3 transition-all duration-300">
                       <span
@@ -258,30 +257,77 @@ export default function Home() {
               </a>
 
               <a href="/ducky-bank" className="group block">
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-6 h-full hover:border-amber-500/40 transition-all duration-400">
+                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-amber-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="absolute top-6 right-6">
+                  <div className="absolute top-5 right-5">
                     <img
                       src="/static/icon-ducky-bank.png"
                       alt="DuckyBank"
-                      className="w-16 h-16 rounded-xl shadow-xl shadow-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-400"
+                      className="w-14 h-14 rounded-xl shadow-xl shadow-amber-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-400"
                     />
                   </div>
-                  <div className="relative pt-16">
+                  <div className="relative pt-14">
                     <span
-                      className="text-[10px] uppercase tracking-[0.2em] text-amber-400/80 mb-1.5 block"
+                      className="text-[10px] uppercase tracking-[0.2em] text-amber-400/80 mb-1 block"
                       style={{ fontFamily: "'Syne', sans-serif" }}
                     >
                       Personal Finance
                     </span>
-                    <h3 className="text-xl font-bold text-neutral-50 mb-2">
+                    <h3 className="text-lg font-bold text-neutral-50 mb-1.5">
                       DuckyBank
                     </h3>
-                    <p className="text-neutral-300 text-sm mb-4 leading-relaxed">
-                      Personal finance made fun. Track spending, set goals, and
-                      watch your savings grow.
+                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
+                      Personal finance made fun. Track spending and watch your savings grow.
                     </p>
                     <div className="flex items-center gap-2 text-amber-400 group-hover:gap-3 transition-all duration-300">
+                      <span
+                        className="text-sm font-medium"
+                        style={{ fontFamily: "'Syne', sans-serif" }}
+                      >
+                        Explore
+                      </span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a href="/genie-laugh" className="group block">
+                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-cyan-500/40 transition-all duration-400">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="absolute top-5 right-5">
+                    <img
+                      src="/static/icon-genie-laugh.png"
+                      alt="Genie Laugh"
+                      className="w-14 h-14 rounded-xl shadow-xl shadow-cyan-500/20 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-400"
+                    />
+                  </div>
+                  <div className="relative pt-14">
+                    <span
+                      className="text-[10px] uppercase tracking-[0.2em] text-cyan-400/80 mb-1 block"
+                      style={{ fontFamily: "'Syne', sans-serif" }}
+                    >
+                      Prank App
+                    </span>
+                    <h3 className="text-lg font-bold text-neutral-50 mb-1.5">
+                      Genie Laugh
+                    </h3>
+                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
+                      Secretly capture hilarious reactions while friends watch videos. 😂
+                    </p>
+                    <div className="flex items-center gap-2 text-cyan-400 group-hover:gap-3 transition-all duration-300">
                       <span
                         className="text-sm font-medium"
                         style={{ fontFamily: "'Syne', sans-serif" }}
