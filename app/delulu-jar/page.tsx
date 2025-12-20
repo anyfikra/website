@@ -1,120 +1,241 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 export default function DeluluPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center mb-8 mx-auto shadow-lg">
-            <img src="/static/icon-delulu-jar.png" alt="Delulu Jar" className="rounded-2xl" />
+    <main className="min-h-screen bg-neutral-900 overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-rose-500/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-pink-500/15 rounded-full blur-[80px]" />
+      </div>
+
+      <div className="relative">
+        <header
+          className={`container mx-auto px-6 py-6 transition-all duration-700 ${
+            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          }`}
+        >
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-50 transition-colors"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span
+              className="text-sm"
+              style={{ fontFamily: "'Syne', sans-serif" }}
+            >
+              Back to AnyFikra
+            </span>
+          </a>
+        </header>
+
+        <section className="container mx-auto px-6 pt-6 pb-14">
+          <div
+            className={`text-center max-w-3xl mx-auto transition-all duration-700 delay-150 ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <div className="relative inline-block mb-6">
+              <div className="absolute inset-0 bg-rose-500/40 rounded-2xl blur-xl" />
+              <img
+                src="/static/icon-delulu-jar.png"
+                alt="DeluluJar"
+                className="relative w-20 h-20 rounded-2xl shadow-xl shadow-rose-500/30"
+              />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-50 mb-3">
+              DeluluJar
+            </h1>
+            <p className="text-lg bg-gradient-to-r from-rose-400 to-pink-400 bg-clip-text text-transparent font-medium mb-4">
+              "Love looks good on you"
+            </p>
+            <p className="text-neutral-300 max-w-xl mx-auto leading-relaxed">
+              A wholesome, private mobile app for couples to store and share
+              little compliments, sweet thoughts, and fun "delulu" moments.
+            </p>
           </div>
-          <h1 className="text-6xl font-bold text-gray-900 mb-4">DeluluJar</h1>
-          <p className="text-2xl text-pink-600 font-medium mb-8">"Love looks good on you"</p>
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            A wholesome, private mobile app for couples to store and share little compliments, sweet
-            thoughts, and fun "delulu" moments. Works like a jar of handwritten love notes, but
-            digital.
-          </p>
+        </section>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">💌</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Digital Love Notes</h3>
-              <p className="text-gray-600">
-                Drop sweet messages, compliments, or fun thoughts into your shared jar. Support
-                text, audio, images, and videos.
-              </p>
+        <section className="container mx-auto px-6 pb-16">
+          <div
+            className={`transition-all duration-700 delay-300 ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-14">
+              <div className="group">
+                <div className="relative p-5 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-rose-500/40 transition-all duration-400 h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-rose-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="relative">
+                    <div className="text-3xl mb-3">💌</div>
+                    <h3 className="text-base font-bold text-neutral-50 mb-2">
+                      Digital Love Notes
+                    </h3>
+                    <p className="text-neutral-300 text-sm leading-relaxed">
+                      Drop sweet messages, compliments, or fun thoughts. Support
+                      text, audio, images, and videos.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="relative p-5 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-pink-500/40 transition-all duration-400 h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="relative">
+                    <div className="text-3xl mb-3">🎲</div>
+                    <h3 className="text-base font-bold text-neutral-50 mb-2">
+                      Random Surprises
+                    </h3>
+                    <p className="text-neutral-300 text-sm leading-relaxed">
+                      Shake or tap to retrieve a random note. Each opening is a
+                      delightful surprise.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group">
+                <div className="relative p-5 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-fuchsia-500/40 transition-all duration-400 h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="relative">
+                    <div className="text-3xl mb-3">🔒</div>
+                    <h3 className="text-base font-bold text-neutral-50 mb-2">
+                      Private & Secure
+                    </h3>
+                    <p className="text-neutral-300 text-sm leading-relaxed">
+                      Your love notes are completely private. Securely stored
+                      with end-to-end privacy.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">🎲</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Random Surprises</h3>
-              <p className="text-gray-600">
-                Shake or tap to retrieve a random note from your shared jar. Each opening is a
-                delightful surprise from your partner.
-              </p>
-            </div>
+            <div className="max-w-3xl mx-auto mb-14">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-gradient-to-r from-neutral-700 to-transparent" />
+                <h2
+                  className="text-xs uppercase tracking-[0.25em] text-neutral-400"
+                  style={{ fontFamily: "'Syne', sans-serif" }}
+                >
+                  How It Works
+                </h2>
+                <div className="h-px flex-1 bg-gradient-to-l from-neutral-700 to-transparent" />
+              </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">🔒</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Private & Secure</h3>
-              <p className="text-gray-600">
-                Your love notes are completely private between you and your partner. Securely stored
-                with end-to-end privacy.
-              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">👥</span>
+                  </div>
+                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                    Pair Up
+                  </h4>
+                  <p className="text-xs text-neutral-400">
+                    Connect with your partner
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">✍️</span>
+                  </div>
+                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                    Add Notes
+                  </h4>
+                  <p className="text-xs text-neutral-400">
+                    Drop messages or photos
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">🏺</span>
+                  </div>
+                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                    Open Jar
+                  </h4>
+                  <p className="text-xs text-neutral-400">
+                    Shake for a random note
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <span className="text-xl">💕</span>
+                  </div>
+                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                    Share Love
+                  </h4>
+                  <p className="text-xs text-neutral-400">
+                    Build your love story
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="bg-white rounded-3xl p-8 shadow-lg max-w-4xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">How It Works</h2>
-            <div className="grid md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">👥</span>
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Pair Up</h4>
-                <p className="text-sm text-gray-600">
-                  Connect with your partner through our secure pairing system
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">✍️</span>
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Add Notes</h4>
-                <p className="text-sm text-gray-600">
-                  Drop sweet messages, photos, or voice notes into your jar
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏺</span>
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Open Jar</h4>
-                <p className="text-sm text-gray-600">
-                  Shake to get a random note and surprise yourself
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">💕</span>
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Share Love</h4>
-                <p className="text-sm text-gray-600">
-                  React with emojis and build your love story together
-                </p>
-              </div>
-            </div>
-          </div>
+        <section
+          className={`container mx-auto px-6 pb-14 transition-all duration-700 delay-400 ${
+            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          <div className="text-center">
+            <a
+              href="https://apps.apple.com/us/app/delulujar/id6751821045"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-xl hover:from-rose-600 hover:to-pink-600 transition-all font-semibold shadow-xl shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-105 duration-300"
+              style={{ fontFamily: "'Syne', sans-serif" }}
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+              </svg>
+              Download for iOS
+            </a>
 
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://apps.apple.com/us/app/delulujar/id6751821045"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-pink-600 text-white px-8 py-4 rounded-xl hover:bg-pink-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl"
-              >
-                <span className="text-2xl">📱</span>
-                <p>Download for iOS</p>
-              </a>
-            </div>
-
-            <div className="flex justify-center gap-6 text-sm">
+            <div className="flex justify-center gap-6 mt-8 text-sm">
               <a
                 href="/delulu-jar/privacy"
-                className="text-pink-600 hover:text-pink-700 transition-colors underline decoration-pink-300 hover:decoration-pink-500"
+                className="text-neutral-400 hover:text-rose-400 transition-colors flex items-center gap-1.5"
               >
-                🔒 Privacy Policy
+                <span>🔒</span>
+                <span>Privacy Policy</span>
               </a>
-              <span className="text-gray-300">•</span>
               <a
                 href="/delulu-jar/contact"
-                className="text-pink-600 hover:text-pink-700 transition-colors underline decoration-pink-300 hover:decoration-pink-500"
+                className="text-neutral-400 hover:text-rose-400 transition-colors flex items-center gap-1.5"
               >
-                💕 Contact & Support
+                <span>💕</span>
+                <span>Contact & Support</span>
               </a>
             </div>
           </div>
-        </div>
+        </section>
+
+        <footer className="container mx-auto px-6 py-6 border-t border-neutral-700/50">
+          <p className="text-center text-sm text-neutral-500">
+            © 2025 AnyFikra. Made with love.
+          </p>
+        </footer>
       </div>
     </main>
   );
