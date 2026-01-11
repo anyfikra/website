@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AnyFikra",
   description: "Discover innovative apps and solutions from AnyFikra",
-  keywords: ["mobile apps", "iOS", "Android", "productivity", "finance", "relationships"],
+  keywords: ["mobile apps", "iOS", "Android", "productivity", "finance"],
   authors: [{ name: "AnyFikra" }],
   creator: "AnyFikra",
   publisher: "AnyFikra",
@@ -61,9 +62,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2578516293530627"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );
