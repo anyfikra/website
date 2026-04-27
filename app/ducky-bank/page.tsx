@@ -12,6 +12,8 @@ import FeatureCheckItem from "../../components/FeatureCheckItem";
 import HowItWorksStep from "../../components/HowItWorksStep";
 import StoreButton from "../../components/StoreButton";
 import AppFooter from "../../components/AppFooter";
+import AppNavBar from "../../components/AppNavBar";
+import AppScreenshots from "../../components/AppScreenshots";
 import PageShell from "../../components/PageShell";
 
 const ORBS = [
@@ -64,8 +66,14 @@ const FEATURES = [
 export default function DuckyBankPage() {
   return (
     <PageShell orbs={ORBS}>
-      <section className="container mx-auto px-6 pt-16 pb-14">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 max-w-4xl mx-auto animate-slide-up">
+      <AppNavBar
+        privacyHref="/ducky-bank/privacy"
+        contactHref="/ducky-bank/contact"
+        accentHoverClass="hover:text-amber-400"
+        accentBorderHoverClass="hover:border-amber-500/50"
+      />
+      <section className="container mx-auto px-6 py-12">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 max-w-4xl mx-auto">
           <div className="flex items-center gap-5">
             <div className="relative flex-shrink-0">
               <div className="absolute inset-0 bg-amber-500/40 rounded-2xl blur-xl" />
@@ -99,35 +107,42 @@ export default function DuckyBankPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 pb-16">
-        <div className="animate-slide-up-delay-2">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-14">
-            <FeatureCard
-              icon={<CreditCard className="w-7 h-7 text-amber-400" />}
-              title="Quick Entry"
-              description="Fast recording with smart categorization."
-              accentColor="amber-500"
-            />
-            <FeatureCard
-              icon={<BarChart2 className="w-7 h-7 text-amber-400" />}
-              title="Visual Reports"
-              description="Daily, weekly, monthly breakdowns."
-              accentColor="amber-500"
-            />
-            <FeatureCard
-              icon={<Trophy className="w-7 h-7 text-amber-400" />}
-              title="Achievements"
-              description="Gamified with duck messages."
-              accentColor="amber-500"
-            />
-            <FeatureCard
-              icon={<Globe className="w-7 h-7 text-amber-400" />}
-              title="Multi-Language"
-              description="EN, FR, ES, JP, RU support."
-              accentColor="amber-500"
-            />
-          </div>
+      <section className="container mx-auto px-6 pb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-14">
+          <FeatureCard
+            icon={<CreditCard className="w-7 h-7 text-amber-400" />}
+            title="Quick Entry"
+            description="Fast recording with smart categorization."
+            accentColor="amber-500"
+          />
+          <FeatureCard
+            icon={<BarChart2 className="w-7 h-7 text-amber-400" />}
+            title="Visual Reports"
+            description="Daily, weekly, monthly breakdowns."
+            accentColor="amber-500"
+          />
+          <FeatureCard
+            icon={<Trophy className="w-7 h-7 text-amber-400" />}
+            title="Achievements"
+            description="Gamified with duck messages."
+            accentColor="amber-500"
+          />
+          <FeatureCard
+            icon={<Globe className="w-7 h-7 text-amber-400" />}
+            title="Multi-Language"
+            description="EN, FR, ES, JP, RU support."
+            accentColor="amber-500"
+          />
+        </div>
 
+        <div className="max-w-4xl mx-auto">
+          <SectionDivider title="Screenshots" accentColor="amber" />
+        </div>
+        <AppScreenshots app="ducky-bank" accentRingClass="ring-amber-500/40" />
+      </section>
+
+      <section className="container mx-auto px-6 pb-12">
+        <div className="animate-slide-up-delay-2">
           <div className="max-w-4xl mx-auto mb-14">
             <SectionDivider title="Features" accentColor="amber" />
             <div className="grid md:grid-cols-2 gap-3">
@@ -160,10 +175,6 @@ export default function DuckyBankPage() {
       </section>
 
       <AppFooter
-        privacyHref="/ducky-bank/privacy"
-        contactHref="/ducky-bank/contact"
-        contactIcon={<Bird className="w-3 h-3" />}
-        accentHoverClass="hover:text-amber-400"
         footerNote={
           <>
             © 2025 AnyFikra. Made with <Bird className="w-3 h-3 inline" />

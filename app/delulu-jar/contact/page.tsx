@@ -1,5 +1,6 @@
-import { Mail, Lightbulb, Heart } from "lucide-react";
+import { Mail, Lightbulb } from "lucide-react";
 import AppFooter from "../../../components/AppFooter";
+import AppNavBar from "../../../components/AppNavBar";
 import PageShell from "../../../components/PageShell";
 import SectionDivider from "../../../components/SectionDivider";
 
@@ -52,7 +53,13 @@ const FAQ = [
 export default function DeluluContactPage() {
   return (
     <PageShell orbs={ORBS}>
-      <section className="container mx-auto px-6 pt-16 pb-14">
+      <AppNavBar
+        privacyHref="/delulu-jar/privacy"
+        contactHref="/delulu-jar/contact"
+        accentHoverClass="hover:text-rose-400"
+        accentBorderHoverClass="hover:border-rose-500/50"
+      />
+      <section className="container mx-auto px-6 pt-8 pb-14">
         <div className="text-center max-w-4xl mx-auto animate-slide-up">
           <div className="relative inline-block mb-6">
             <div className="absolute inset-0 bg-rose-500/40 rounded-2xl blur-xl" />
@@ -132,13 +139,7 @@ export default function DeluluContactPage() {
         </div>
       </section>
 
-      <AppFooter
-        privacyHref="/delulu-jar/privacy"
-        contactHref="/delulu-jar/contact"
-        contactIcon={<Heart className="w-3 h-3" />}
-        accentHoverClass="hover:text-rose-400"
-        footerNote="© 2025 AnyFikra. Made with love."
-      />
+      <AppFooter footerNote="© 2025 AnyFikra. Made with love." />
     </PageShell>
   );
 }

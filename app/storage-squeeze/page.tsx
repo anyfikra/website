@@ -9,6 +9,7 @@ import {
 import SectionDivider from "../../components/SectionDivider";
 import FeatureCard from "../../components/FeatureCard";
 import AppFooter from "../../components/AppFooter";
+import AppNavBar from "../../components/AppNavBar";
 import PageShell from "../../components/PageShell";
 
 const ORBS = [
@@ -29,7 +30,13 @@ const ORBS = [
 export default function StorageSqueezePage() {
   return (
     <PageShell orbs={ORBS}>
-      <section className="container mx-auto px-6 pt-16 pb-14">
+      <AppNavBar
+        privacyHref="/storage-squeeze/privacy"
+        contactHref="/storage-squeeze/contact"
+        accentHoverClass="hover:text-emerald-400"
+        accentBorderHoverClass="hover:border-emerald-500/50"
+      />
+      <section className="container mx-auto px-6 pt-8 pb-14">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 max-w-4xl mx-auto animate-slide-up">
           <div className="flex items-center gap-5">
             <div className="relative flex-shrink-0">
@@ -124,13 +131,7 @@ export default function StorageSqueezePage() {
         </div>
       </section>
 
-      <AppFooter
-        privacyHref="/storage-squeeze/privacy"
-        contactHref="/storage-squeeze/contact"
-        contactIcon={<Lock className="w-3 h-3" />}
-        accentHoverClass="hover:text-emerald-400"
-        footerNote="© 2025 AnyFikra. Made with care."
-      />
+      <AppFooter footerNote="© 2025 AnyFikra. Made with care." />
     </PageShell>
   );
 }

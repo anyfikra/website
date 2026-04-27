@@ -14,6 +14,8 @@ import HowItWorksStep from "../../components/HowItWorksStep";
 import FeatureCheckItem from "../../components/FeatureCheckItem";
 import StoreButton from "../../components/StoreButton";
 import AppFooter from "../../components/AppFooter";
+import AppNavBar from "../../components/AppNavBar";
+import AppScreenshots from "../../components/AppScreenshots";
 import PageShell from "../../components/PageShell";
 
 const ORBS = [
@@ -72,8 +74,14 @@ const FEATURES = [
 export default function GenieLaughPage() {
   return (
     <PageShell orbs={ORBS}>
-      <section className="container mx-auto px-6 pt-16 pb-14">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 max-w-4xl mx-auto animate-slide-up">
+      <AppNavBar
+        privacyHref="/genie-laugh/privacy"
+        contactHref="/genie-laugh/contact"
+        accentHoverClass="hover:text-cyan-400"
+        accentBorderHoverClass="hover:border-cyan-500/50"
+      />
+      <section className="container mx-auto px-6 py-12">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 max-w-4xl mx-auto">
           <div className="flex items-center gap-5">
             <div className="relative flex-shrink-0">
               <div className="absolute inset-0 bg-cyan-500/40 rounded-2xl blur-xl" />
@@ -107,29 +115,36 @@ export default function GenieLaughPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 pb-16">
-        <div className="animate-slide-up-delay-2">
-          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-14">
-            <FeatureCard
-              icon={<EyeOff className="w-7 h-7 text-cyan-400" />}
-              title="Ninja Camera"
-              description="Secretly records reactions while your friend watches videos. Photo or video mode."
-              accentColor="cyan-500"
-            />
-            <FeatureCard
-              icon={<Theater className="w-7 h-7 text-cyan-400" />}
-              title="Fake UI Themes"
-              description="Pixel-perfect Instagram Reels and TikTok interfaces. They won't suspect a thing!"
-              accentColor="cyan-500"
-            />
-            <FeatureCard
-              icon={<ShieldCheck className="w-7 h-7 text-cyan-400" />}
-              title="Ethical by Design"
-              description="No saving or screenshots allowed. Built for harmless fun with clear consent."
-              accentColor="cyan-500"
-            />
-          </div>
+      <section className="container mx-auto px-6 pb-12">
+        <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-14">
+          <FeatureCard
+            icon={<EyeOff className="w-7 h-7 text-cyan-400" />}
+            title="Ninja Camera"
+            description="Secretly records reactions while your friend watches videos. Photo or video mode."
+            accentColor="cyan-500"
+          />
+          <FeatureCard
+            icon={<Theater className="w-7 h-7 text-cyan-400" />}
+            title="Fake UI Themes"
+            description="Pixel-perfect Instagram Reels and TikTok interfaces. They won't suspect a thing!"
+            accentColor="cyan-500"
+          />
+          <FeatureCard
+            icon={<ShieldCheck className="w-7 h-7 text-cyan-400" />}
+            title="Ethical by Design"
+            description="No saving or screenshots allowed. Built for harmless fun with clear consent."
+            accentColor="cyan-500"
+          />
+        </div>
 
+        <div className="max-w-4xl mx-auto">
+          <SectionDivider title="Screenshots" accentColor="cyan" />
+        </div>
+        <AppScreenshots app="genie-laugh" accentRingClass="ring-cyan-500/40" />
+      </section>
+
+      <section className="container mx-auto px-6 pb-12">
+        <div className="animate-slide-up-delay-2">
           <div className="max-w-4xl mx-auto mb-14">
             <SectionDivider title="Features" accentColor="cyan" />
             <div className="grid md:grid-cols-2 gap-3">
@@ -162,10 +177,6 @@ export default function GenieLaughPage() {
       </section>
 
       <AppFooter
-        privacyHref="/genie-laugh/privacy"
-        contactHref="/genie-laugh/contact"
-        contactIcon={<Sparkles className="w-3 h-3" />}
-        accentHoverClass="hover:text-cyan-400"
         footerNote={
           <>
             © 2025 AnyFikra. Made with <Sparkles className="w-3 h-3 inline" />

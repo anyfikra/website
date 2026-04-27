@@ -1,5 +1,6 @@
 import { Mail, Lightbulb, Sparkles } from "lucide-react";
 import AppFooter from "../../../components/AppFooter";
+import AppNavBar from "../../../components/AppNavBar";
 import PageShell from "../../../components/PageShell";
 import SectionDivider from "../../../components/SectionDivider";
 
@@ -48,7 +49,13 @@ const FAQ = [
 export default function GenieLaughContactPage() {
   return (
     <PageShell orbs={ORBS}>
-      <section className="container mx-auto px-6 pt-16 pb-14">
+      <AppNavBar
+        privacyHref="/genie-laugh/privacy"
+        contactHref="/genie-laugh/contact"
+        accentHoverClass="hover:text-cyan-400"
+        accentBorderHoverClass="hover:border-cyan-500/50"
+      />
+      <section className="container mx-auto px-6 pt-8 pb-14">
         <div className="text-center max-w-4xl mx-auto animate-slide-up">
           <div className="relative inline-block mb-6">
             <div className="absolute inset-0 bg-cyan-500/40 rounded-2xl blur-xl" />
@@ -129,10 +136,6 @@ export default function GenieLaughContactPage() {
       </section>
 
       <AppFooter
-        privacyHref="/genie-laugh/privacy"
-        contactHref="/genie-laugh/contact"
-        contactIcon={<Sparkles className="w-3 h-3" />}
-        accentHoverClass="hover:text-cyan-400"
         footerNote={
           <>
             © 2025 AnyFikra. Made with <Sparkles className="w-3 h-3 inline" />
