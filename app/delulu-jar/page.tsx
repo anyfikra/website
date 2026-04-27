@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { siApple, siGoogleplay } from "simple-icons";
+import { Dices, Heart, Lock, Mail, PackageOpen, PenLine, Users } from "lucide-react";
 
 export default function DeluluPage() {
   const [mounted, setMounted] = useState(false);
@@ -40,7 +42,7 @@ export default function DeluluPage() {
               />
             </svg>
             <span
-              className="text-sm"
+              className="text-base"
               style={{ fontFamily: "'Syne', sans-serif" }}
             >
               Back to AnyFikra
@@ -72,6 +74,32 @@ export default function DeluluPage() {
               A wholesome, private mobile app for couples to store and share
               little compliments, sweet thoughts, and fun "delulu" moments.
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <a
+                href="https://apps.apple.com/us/app/delulujar/id6751821045"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-neutral-800 border-2 border-neutral-700 text-white px-8 py-4 rounded-xl hover:bg-neutral-700 hover:border-neutral-600 transition-all font-semibold shadow-xl duration-300"
+                style={{ fontFamily: "'Syne', sans-serif" }}
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d={siApple.path} />
+                </svg>
+                Download for iOS
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=app.delulujar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-neutral-800 border-2 border-neutral-700 text-white px-8 py-4 rounded-xl hover:bg-neutral-700 hover:border-neutral-600 transition-all font-semibold shadow-xl duration-300"
+                style={{ fontFamily: "'Syne', sans-serif" }}
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d={siGoogleplay.path} />
+                </svg>
+                Get it on Android
+              </a>
+            </div>
           </div>
         </section>
 
@@ -83,14 +111,14 @@ export default function DeluluPage() {
           >
             <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-14">
               <div className="group">
-                <div className="relative p-5 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-rose-500/40 transition-all duration-400 h-full">
+                <div className="relative p-5 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-rose-500/40 transition-all duration-400 h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative">
-                    <div className="text-3xl mb-3">💌</div>
-                    <h3 className="text-base font-bold text-neutral-50 mb-2">
+                    <Mail className="w-8 h-8 text-rose-400 mb-3" />
+                    <h3 className="text-lg font-bold text-neutral-50 mb-2">
                       Digital Love Notes
                     </h3>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-base leading-relaxed">
                       Drop sweet messages, compliments, or fun thoughts. Support
                       text, audio, images, and videos.
                     </p>
@@ -99,14 +127,14 @@ export default function DeluluPage() {
               </div>
 
               <div className="group">
-                <div className="relative p-5 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-pink-500/40 transition-all duration-400 h-full">
+                <div className="relative p-5 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-pink-500/40 transition-all duration-400 h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-pink-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative">
-                    <div className="text-3xl mb-3">🎲</div>
-                    <h3 className="text-base font-bold text-neutral-50 mb-2">
+                    <Dices className="w-8 h-8 text-rose-400 mb-3" />
+                    <h3 className="text-lg font-bold text-neutral-50 mb-2">
                       Random Surprises
                     </h3>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-base leading-relaxed">
                       Shake or tap to retrieve a random note. Each opening is a
                       delightful surprise.
                     </p>
@@ -115,14 +143,14 @@ export default function DeluluPage() {
               </div>
 
               <div className="group">
-                <div className="relative p-5 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-fuchsia-500/40 transition-all duration-400 h-full">
+                <div className="relative p-5 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-fuchsia-500/40 transition-all duration-400 h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative">
-                    <div className="text-3xl mb-3">🔒</div>
-                    <h3 className="text-base font-bold text-neutral-50 mb-2">
+                    <Lock className="w-8 h-8 text-rose-400 mb-3" />
+                    <h3 className="text-lg font-bold text-neutral-50 mb-2">
                       Private & Secure
                     </h3>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-base leading-relaxed">
                       Your love notes are completely private. Securely stored
                       with end-to-end privacy.
                     </p>
@@ -135,7 +163,7 @@ export default function DeluluPage() {
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-px flex-1 bg-gradient-to-r from-neutral-700 to-transparent" />
                 <h2
-                  className="text-xs uppercase tracking-[0.25em] text-neutral-400"
+                  className="text-sm uppercase tracking-[0.25em] text-neutral-400"
                   style={{ fontFamily: "'Syne', sans-serif" }}
                 >
                   How It Works
@@ -146,45 +174,45 @@ export default function DeluluPage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl">👥</span>
+                    <Users className="w-5 h-5 text-rose-400" />
                   </div>
-                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                  <h4 className="font-semibold text-neutral-50 text-base mb-1">
                     Pair Up
                   </h4>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-sm text-neutral-400">
                     Connect with your partner
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl">✍️</span>
+                    <PenLine className="w-5 h-5 text-rose-400" />
                   </div>
-                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                  <h4 className="font-semibold text-neutral-50 text-base mb-1">
                     Add Notes
                   </h4>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-sm text-neutral-400">
                     Drop messages or photos
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl">🏺</span>
+                    <PackageOpen className="w-5 h-5 text-rose-400" />
                   </div>
-                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                  <h4 className="font-semibold text-neutral-50 text-base mb-1">
                     Open Jar
                   </h4>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-sm text-neutral-400">
                     Shake for a random note
                   </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-gradient-to-br from-rose-500/25 to-pink-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl">💕</span>
+                    <Heart className="w-5 h-5 text-rose-400" />
                   </div>
-                  <h4 className="font-semibold text-neutral-50 text-sm mb-1">
+                  <h4 className="font-semibold text-neutral-50 text-base mb-1">
                     Share Love
                   </h4>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-sm text-neutral-400">
                     Build your love story
                   </p>
                 </div>
@@ -199,40 +227,27 @@ export default function DeluluPage() {
           }`}
         >
           <div className="text-center">
-            <a
-              href="https://apps.apple.com/us/app/delulujar/id6751821045"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-xl hover:from-rose-600 hover:to-pink-600 transition-all font-semibold shadow-xl shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-105 duration-300"
-              style={{ fontFamily: "'Syne', sans-serif" }}
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
-              </svg>
-              Download for iOS
-            </a>
-
             <div className="flex justify-center gap-6 mt-8 text-sm">
               <a
                 href="/delulu-jar/privacy"
                 className="text-neutral-400 hover:text-rose-400 transition-colors flex items-center gap-1.5"
               >
-                <span>🔒</span>
+                <Lock className="w-3.5 h-3.5" />
                 <span>Privacy Policy</span>
               </a>
               <a
                 href="/delulu-jar/contact"
                 className="text-neutral-400 hover:text-rose-400 transition-colors flex items-center gap-1.5"
               >
-                <span>💕</span>
+                <Heart className="w-3.5 h-3.5" />
                 <span>Contact & Support</span>
               </a>
             </div>
           </div>
         </section>
 
-        <footer className="container mx-auto px-6 py-6 border-t border-neutral-700/50">
-          <p className="text-center text-sm text-neutral-500">
+        <footer className="container mx-auto px-6 py-6 border-t-2 border-neutral-700/50">
+          <p className="text-center text-base text-neutral-500">
             © 2025 AnyFikra. Made with love.
           </p>
         </footer>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ArrowRight, Heart, Lightbulb, Sun } from "lucide-react";
 
 export default function Home() {
   const [currentWord, setCurrentWord] = useState(0);
@@ -54,7 +55,7 @@ export default function Home() {
             }`}
           >
             <p
-              className="text-amber-400 text-xs uppercase tracking-[0.25em] mb-4"
+              className="text-amber-400 text-base uppercase tracking-[0.25em] mb-4"
               style={{ fontFamily: "'Syne', sans-serif" }}
             >
               Independent App Studio
@@ -88,7 +89,7 @@ export default function Home() {
             <div className="flex items-center gap-4 mb-8">
               <div className="h-px flex-1 bg-gradient-to-r from-neutral-700 to-transparent" />
               <h2
-                className="text-xs uppercase tracking-[0.25em] text-neutral-400"
+                className="text-sm uppercase tracking-[0.25em] text-neutral-400"
                 style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 The Philosophy
@@ -98,28 +99,16 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
               <div className="group">
-                <div className="relative p-6 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-amber-500/40 transition-all duration-400">
+                <div className="relative p-6 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-amber-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative">
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/25 to-orange-500/25 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-400">
-                      <svg
-                        className="w-5 h-5 text-amber-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                        />
-                      </svg>
+                      <Lightbulb className="w-5 h-5 text-amber-400" />
                     </div>
                     <h3 className="text-lg font-bold text-neutral-50 mb-2">
                       Start with a question
                     </h3>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-base leading-relaxed">
                       Every app begins with "How can this be better?" Looking
                       for the human story behind every problem.
                     </p>
@@ -128,28 +117,16 @@ export default function Home() {
               </div>
 
               <div className="group md:mt-6">
-                <div className="relative p-6 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-rose-500/40 transition-all duration-400">
+                <div className="relative p-6 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-rose-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative">
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-500/25 to-pink-500/25 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-400">
-                      <svg
-                        className="w-5 h-5 text-rose-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
+                      <Heart className="w-5 h-5 text-rose-400" />
                     </div>
                     <h3 className="text-lg font-bold text-neutral-50 mb-2">
                       Built with care
                     </h3>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-base leading-relaxed">
                       Each app crafted with attention to every detail.
                       Respecting your time, protecting your privacy.
                     </p>
@@ -158,28 +135,16 @@ export default function Home() {
               </div>
 
               <div className="group">
-                <div className="relative p-6 rounded-2xl border border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-sky-500/40 transition-all duration-400">
+                <div className="relative p-6 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-sky-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-sky-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="relative">
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500/25 to-blue-500/25 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-400">
-                      <svg
-                        className="w-5 h-5 text-sky-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
+                      <Sun className="w-5 h-5 text-sky-400" />
                     </div>
                     <h3 className="text-lg font-bold text-neutral-50 mb-2">
                       Honest & helpful
                     </h3>
-                    <p className="text-neutral-300 text-sm leading-relaxed">
+                    <p className="text-neutral-300 text-base leading-relaxed">
                       No dark patterns, no tricks. Just honest tools that solve
                       real problems.
                     </p>
@@ -199,7 +164,7 @@ export default function Home() {
             <div className="flex items-center gap-4 mb-10">
               <div className="h-px flex-1 bg-gradient-to-r from-neutral-700 to-transparent" />
               <h2
-                className="text-xs uppercase tracking-[0.25em] text-neutral-400"
+                className="text-sm uppercase tracking-[0.25em] text-neutral-400"
                 style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 Current Projects
@@ -209,7 +174,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
               <a href="/delulu-jar" className="group block">
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-rose-500/40 transition-all duration-400">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-rose-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="absolute top-5 right-5">
                     <img
@@ -220,7 +185,7 @@ export default function Home() {
                   </div>
                   <div className="relative pt-14">
                     <span
-                      className="text-[10px] uppercase tracking-[0.2em] text-rose-400/80 mb-1 block"
+                      className="text-sm uppercase tracking-[0.25em] text-neutral-400"
                       style={{ fontFamily: "'Syne', sans-serif" }}
                     >
                       For Couples
@@ -228,36 +193,25 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-neutral-50 mb-1.5">
                       DeluluJar
                     </h3>
-                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
-                      A digital memory jar for couples. Save moments, celebrate your love story.
+                    <p className="text-neutral-300 text-base mb-3 leading-relaxed">
+                      A digital memory jar for couples. Save moments, celebrate
+                      your love story.
                     </p>
                     <div className="flex items-center gap-2 text-rose-400 group-hover:gap-3 transition-all duration-300">
                       <span
-                        className="text-sm font-medium"
+                        className="text-lg font-medium"
                         style={{ fontFamily: "'Syne', sans-serif" }}
                       >
                         Explore
                       </span>
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
               </a>
 
               <a href="/ducky-bank" className="group block">
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-amber-500/40 transition-all duration-400">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-amber-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="absolute top-5 right-5">
                     <img
@@ -268,7 +222,7 @@ export default function Home() {
                   </div>
                   <div className="relative pt-14">
                     <span
-                      className="text-[10px] uppercase tracking-[0.2em] text-amber-400/80 mb-1 block"
+                      className="text-sm uppercase tracking-[0.25em] text-neutral-400"
                       style={{ fontFamily: "'Syne', sans-serif" }}
                     >
                       Personal Finance
@@ -276,36 +230,25 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-neutral-50 mb-1.5">
                       DuckyBank
                     </h3>
-                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
-                      Personal finance made fun. Track spending and watch your savings grow.
+                    <p className="text-neutral-300 text-base mb-3 leading-relaxed">
+                      Personal finance made fun. Track spending and watch your
+                      savings grow.
                     </p>
                     <div className="flex items-center gap-2 text-amber-400 group-hover:gap-3 transition-all duration-300">
                       <span
-                        className="text-sm font-medium"
+                        className="text-lg font-medium"
                         style={{ fontFamily: "'Syne', sans-serif" }}
                       >
                         Explore
                       </span>
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
               </a>
 
               <a href="/genie-laugh" className="group block">
-                <div className="relative overflow-hidden rounded-2xl border border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-cyan-500/40 transition-all duration-400">
+                <div className="relative overflow-hidden rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/50 backdrop-blur-sm p-5 h-full hover:border-cyan-500/40 transition-all duration-400">
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                   <div className="absolute top-5 right-5">
                     <img
@@ -316,7 +259,7 @@ export default function Home() {
                   </div>
                   <div className="relative pt-14">
                     <span
-                      className="text-[10px] uppercase tracking-[0.2em] text-cyan-400/80 mb-1 block"
+                      className="text-sm uppercase tracking-[0.25em] text-neutral-400"
                       style={{ fontFamily: "'Syne', sans-serif" }}
                     >
                       Prank App
@@ -324,29 +267,18 @@ export default function Home() {
                     <h3 className="text-lg font-bold text-neutral-50 mb-1.5">
                       Genie Laugh
                     </h3>
-                    <p className="text-neutral-300 text-sm mb-3 leading-relaxed">
-                      Secretly capture hilarious reactions while friends watch videos. 😂
+                    <p className="text-neutral-300 text-base mb-3 leading-relaxed">
+                      Secretly capture hilarious reactions while friends watch
+                      videos.
                     </p>
                     <div className="flex items-center gap-2 text-cyan-400 group-hover:gap-3 transition-all duration-300">
                       <span
-                        className="text-sm font-medium"
+                        className="text-lg font-medium"
                         style={{ fontFamily: "'Syne', sans-serif" }}
                       >
                         Explore
                       </span>
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
@@ -360,19 +292,13 @@ export default function Home() {
             mounted ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 border-t border-neutral-700/50 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 border-t-2 border-neutral-700/50 pt-6">
             <p className="text-sm text-neutral-400">
               © 2025 AnyFikra. Built with care, one pixel at a time.
             </p>
-            <div className="flex items-center gap-1 text-sm text-neutral-500">
+            <div className="flex items-center gap-1 text-base text-neutral-500">
               <span>Made with</span>
-              <svg
-                className="w-4 h-4 text-rose-500"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              </svg>
+              <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
             </div>
           </div>
         </footer>

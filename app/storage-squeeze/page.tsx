@@ -1,10 +1,12 @@
+import { Smartphone } from "lucide-react";
+
 export default function StorageSqueezePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
           <div className="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center mb-8 mx-auto">
-            <span className="text-4xl">📱</span>
+            <Smartphone className="w-10 h-10 text-green-600" />
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Storage Squeeze</h1>
           <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
