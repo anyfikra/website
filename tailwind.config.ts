@@ -54,6 +54,7 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Inter", "system-ui", "sans-serif"],
+        syne: ["Syne", "system-ui", "sans-serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1rem" }],
@@ -86,9 +87,14 @@ const config: Config = {
         "hero-pattern":
           "linear-gradient(135deg, #fef2f2 0%, #fee2e2 25%, #fecaca 50%, #fca5a5 75%, #f87171 100%)",
       },
+      transitionDuration: {
+        "400": "400ms",
+      },
       animation: {
-        "fade-in": "fadeIn 0.6s ease-out",
-        "slide-up": "slideUp 0.6s ease-out",
+        "fade-in": "fadeIn 0.6s ease-out both",
+        "slide-up": "slideUp 0.7s ease-out both",
+        "slide-up-delay": "slideUp 0.7s ease-out 0.15s both",
+        "slide-up-delay-2": "slideUp 0.7s ease-out 0.3s both",
         "glow-pulse": "glowPulse 2s ease-in-out infinite",
       },
       keyframes: {
@@ -97,7 +103,7 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "0%": { transform: "translateY(24px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
         glowPulse: {

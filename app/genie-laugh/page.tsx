@@ -1,54 +1,81 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { siApple } from "simple-icons";
 import {
-  Check,
-  ChevronLeft,
   Download,
   EyeOff,
   Layers,
-  Lock,
   PartyPopper,
   ShieldCheck,
   Smartphone,
   Sparkles,
   Theater,
 } from "lucide-react";
+import SectionDivider from "../../components/SectionDivider";
+import FeatureCard from "../../components/FeatureCard";
+import HowItWorksStep from "../../components/HowItWorksStep";
+import FeatureCheckItem from "../../components/FeatureCheckItem";
+import StoreButton from "../../components/StoreButton";
+import AppFooter from "../../components/AppFooter";
+import PageShell from "../../components/PageShell";
+
+const ORBS = [
+  {
+    size: "w-[500px] h-[500px]",
+    position: "top-0 right-1/4",
+    color: "bg-cyan-500/15",
+    blur: "blur-[100px]",
+  },
+  {
+    size: "w-[400px] h-[400px]",
+    position: "bottom-0 left-1/4",
+    color: "bg-violet-500/15",
+    blur: "blur-[80px]",
+  },
+];
+
+const HOW_IT_WORKS = [
+  {
+    icon: <Download className="w-5 h-5 text-cyan-400" />,
+    title: "Import Video",
+    desc: "Select any funny video",
+  },
+  {
+    icon: <Layers className="w-5 h-5 text-cyan-400" />,
+    title: "Pick Theme",
+    desc: "Instagram or TikTok style",
+  },
+  {
+    icon: <Smartphone className="w-5 h-5 text-cyan-400" />,
+    title: "Hand Over",
+    desc: "Give to your friend",
+  },
+  {
+    icon: <PartyPopper className="w-5 h-5 text-cyan-400" />,
+    title: "Gotcha!",
+    desc: "Reveal their reactions",
+  },
+];
+
+const FEATURES = [
+  {
+    title: "Photo & Video Modes",
+    desc: "Capture shots every 2s or record 1080p video",
+  },
+  {
+    title: "Custom Profile Pics",
+    desc: "Make the fake UI even more convincing",
+  },
+  { title: "Coin Economy", desc: "Fair system with rewarded ads" },
+  { title: "6 Languages", desc: "EN, AR, ES, FR, JP, ZH with RTL support" },
+  { title: "Screenshot Blocking", desc: "Prevents saving on results screen" },
+  { title: "Neubrutalism Design", desc: "Bold, playful, and colorful UI" },
+];
 
 export default function GenieLaughPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <main className="min-h-screen bg-neutral-900 overflow-hidden">
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-violet-500/15 rounded-full blur-[80px]" />
-      </div>
-
-      <div className="relative">
-        <header
-          className={`container mx-auto px-6 py-6 transition-all duration-700 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-          }`}
-        >
-          <a href="/" className="inline-flex items-center gap-2 text-neutral-400 hover:text-neutral-50 transition-colors">
-            <ChevronLeft className="w-4 h-4" />
-            <span className="text-base" style={{ fontFamily: "'Syne', sans-serif" }}>Back to AnyFikra</span>
-          </a>
-        </header>
-
-        <section className="container mx-auto px-6 pt-6 pb-14">
-          <div
-            className={`text-center max-w-3xl mx-auto transition-all duration-700 delay-150 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            <div className="relative inline-block mb-6">
+    <PageShell orbs={ORBS}>
+      <section className="container mx-auto px-6 pt-16 pb-14">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 max-w-4xl mx-auto animate-slide-up">
+          <div className="flex items-center gap-5">
+            <div className="relative flex-shrink-0">
               <div className="absolute inset-0 bg-cyan-500/40 rounded-2xl blur-xl" />
               <img
                 src="/static/icon-genie-laugh.png"
@@ -56,169 +83,95 @@ export default function GenieLaughPage() {
                 className="relative w-20 h-20 rounded-2xl shadow-xl shadow-cyan-500/30"
               />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-50 mb-3">Genie Laugh</h1>
-            <p className="text-lg bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent font-medium mb-4">
-              "Capture priceless reactions"
-            </p>
-            <p className="text-neutral-300 max-w-xl mx-auto leading-relaxed">
-              A playful prank app that secretly captures your friend's hilarious reactions
-              while they watch a video. They'll never know the front camera is recording!
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <a
-                href="https://apps.apple.com/us/app/genie-laugh/id6756788441"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-neutral-800 border-2 border-neutral-700 text-white px-8 py-4 rounded-xl hover:bg-neutral-700 hover:border-neutral-600 transition-all font-semibold shadow-xl duration-300"
-                style={{ fontFamily: "'Syne', sans-serif" }}
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d={siApple.path} />
-                </svg>
-                Download for iOS
-              </a>
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-50 mb-2 font-syne">
+                Genie Laugh
+              </h1>
+              <p className="text-base bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent font-medium mb-3 font-syne">
+                &ldquo;Capture priceless reactions&rdquo;
+              </p>
+              <p className="text-neutral-400 text-sm leading-relaxed max-w-md">
+                A playful prank app that secretly captures your friend&apos;s
+                hilarious reactions while they watch a video. They&apos;ll never
+                know the front camera is recording!
+              </p>
             </div>
           </div>
-        </section>
+          <div className="flex flex-row md:flex-col gap-3 flex-shrink-0">
+            <StoreButton
+              store="ios"
+              href="https://apps.apple.com/us/app/genie-laugh/id6756788441"
+              accentColor="cyan"
+            />
+          </div>
+        </div>
+      </section>
 
-        <section className="container mx-auto px-6 pb-16">
-          <div
-            className={`transition-all duration-700 delay-300 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-14">
-              <div className="group">
-                <div className="relative p-5 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-cyan-500/40 transition-all duration-400 h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="relative">
-                    <EyeOff className="w-8 h-8 text-cyan-400 mb-3" />
-                    <h3 className="text-lg font-bold text-neutral-50 mb-2">Ninja Camera</h3>
-                    <p className="text-neutral-300 text-base leading-relaxed">
-                      Secretly records reactions while your friend watches videos. Photo or video mode.
-                    </p>
-                  </div>
-                </div>
-              </div>
+      <section className="container mx-auto px-6 pb-16">
+        <div className="animate-slide-up-delay-2">
+          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-14">
+            <FeatureCard
+              icon={<EyeOff className="w-7 h-7 text-cyan-400" />}
+              title="Ninja Camera"
+              description="Secretly records reactions while your friend watches videos. Photo or video mode."
+              accentColor="cyan-500"
+            />
+            <FeatureCard
+              icon={<Theater className="w-7 h-7 text-cyan-400" />}
+              title="Fake UI Themes"
+              description="Pixel-perfect Instagram Reels and TikTok interfaces. They won't suspect a thing!"
+              accentColor="cyan-500"
+            />
+            <FeatureCard
+              icon={<ShieldCheck className="w-7 h-7 text-cyan-400" />}
+              title="Ethical by Design"
+              description="No saving or screenshots allowed. Built for harmless fun with clear consent."
+              accentColor="cyan-500"
+            />
+          </div>
 
-              <div className="group">
-                <div className="relative p-5 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-violet-500/40 transition-all duration-400 h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="relative">
-                    <Theater className="w-8 h-8 text-cyan-400 mb-3" />
-                    <h3 className="text-lg font-bold text-neutral-50 mb-2">Fake UI Themes</h3>
-                    <p className="text-neutral-300 text-base leading-relaxed">
-                      Pixel-perfect Instagram Reels and TikTok interfaces. They won't suspect a thing!
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group">
-                <div className="relative p-5 rounded-2xl border-2 border-neutral-700/60 bg-neutral-800/40 backdrop-blur-sm hover:border-pink-500/40 transition-all duration-400 h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/8 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="relative">
-                    <ShieldCheck className="w-8 h-8 text-cyan-400 mb-3" />
-                    <h3 className="text-lg font-bold text-neutral-50 mb-2">Ethical by Design</h3>
-                    <p className="text-neutral-300 text-base leading-relaxed">
-                      No saving or screenshots allowed. Built for harmless fun with clear consent.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="max-w-3xl mx-auto mb-14">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px flex-1 bg-gradient-to-r from-neutral-700 to-transparent" />
-                <h2 className="text-sm uppercase tracking-[0.25em] text-neutral-400" style={{ fontFamily: "'Syne', sans-serif" }}>
-                  How It Works
-                </h2>
-                <div className="h-px flex-1 bg-gradient-to-l from-neutral-700 to-transparent" />
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { icon: <Download className="w-5 h-5 text-cyan-400" />, title: "Import Video", desc: "Select any funny video" },
-                  { icon: <Layers className="w-5 h-5 text-cyan-400" />, title: "Pick Theme", desc: "Instagram or TikTok style" },
-                  { icon: <Smartphone className="w-5 h-5 text-cyan-400" />, title: "Hand Over", desc: "Give to your friend" },
-                  { icon: <PartyPopper className="w-5 h-5 text-cyan-400" />, title: "Gotcha!", desc: "Reveal their reactions" },
-                ].map(({ icon, title, desc }) => (
-                  <div key={title} className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/25 to-violet-500/25 rounded-xl flex items-center justify-center mx-auto mb-3">
-                      {icon}
-                    </div>
-                    <h4 className="font-semibold text-neutral-50 text-base mb-1">{title}</h4>
-                    <p className="text-sm text-neutral-400">{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="max-w-3xl mx-auto mb-14">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px flex-1 bg-gradient-to-r from-neutral-700 to-transparent" />
-                <h2 className="text-sm uppercase tracking-[0.25em] text-neutral-400" style={{ fontFamily: "'Syne', sans-serif" }}>
-                  Features
-                </h2>
-                <div className="h-px flex-1 bg-gradient-to-l from-neutral-700 to-transparent" />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-3">
-                {[
-                  { title: "Photo & Video Modes", desc: "Capture shots every 2s or record 1080p video" },
-                  { title: "Custom Profile Pics", desc: "Make the fake UI even more convincing" },
-                  { title: "Coin Economy", desc: "Fair system with rewarded ads" },
-                  { title: "6 Languages", desc: "EN, AR, ES, FR, JP, ZH with RTL support" },
-                  { title: "Screenshot Blocking", desc: "Prevents saving on results screen" },
-                  { title: "Neubrutalism Design", desc: "Bold, playful, and colorful UI" },
-                ].map(({ title, desc }) => (
-                  <div key={title} className="flex items-start gap-3 p-3 rounded-xl border-2 border-neutral-700/40 bg-neutral-800/30">
-                    <div className="w-7 h-7 bg-gradient-to-br from-cyan-500/25 to-violet-500/25 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 text-cyan-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-neutral-50 text-base">{title}</h4>
-                      <p className="text-neutral-400 text-sm">{desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="max-w-4xl mx-auto mb-14">
+            <SectionDivider title="Features" accentColor="cyan" />
+            <div className="grid md:grid-cols-2 gap-3">
+              {FEATURES.map(({ title, desc }) => (
+                <FeatureCheckItem
+                  key={title}
+                  title={title}
+                  description={desc}
+                  checkColor="text-cyan-400"
+                />
+              ))}
             </div>
           </div>
-        </section>
 
-        <section
-          className={`container mx-auto px-6 pb-14 transition-all duration-700 delay-400 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <div className="text-center">
-            <div className="flex justify-center gap-6 mt-6 text-sm">
-              <a
-                href="/genie-laugh/privacy"
-                className="text-neutral-400 hover:text-cyan-400 transition-colors flex items-center gap-1.5"
-              >
-                <Lock className="w-3.5 h-3.5" />
-                <span>Privacy Policy</span>
-              </a>
-              <a
-                href="/genie-laugh/contact"
-                className="text-neutral-400 hover:text-cyan-400 transition-colors flex items-center gap-1.5"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Contact & Support</span>
-              </a>
+          <div className="max-w-4xl mx-auto mb-14">
+            <SectionDivider title="How It Works" accentColor="cyan" />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {HOW_IT_WORKS.map(({ icon, title, desc }, i) => (
+                <HowItWorksStep
+                  key={title}
+                  icon={icon}
+                  title={title}
+                  description={desc}
+                  step={i + 1}
+                />
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <footer className="container mx-auto px-6 py-6 border-t-2 border-neutral-700/50">
-          <p className="text-center text-base text-neutral-500 flex items-center justify-center gap-1">
-            © 2025 AnyFikra. Made with <Sparkles className="w-3.5 h-3.5 inline" />
-          </p>
-        </footer>
-      </div>
-    </main>
+      <AppFooter
+        privacyHref="/genie-laugh/privacy"
+        contactHref="/genie-laugh/contact"
+        contactIcon={<Sparkles className="w-3 h-3" />}
+        accentHoverClass="hover:text-cyan-400"
+        footerNote={
+          <>
+            © 2025 AnyFikra. Made with <Sparkles className="w-3 h-3 inline" />
+          </>
+        }
+      />
+    </PageShell>
   );
 }

@@ -5,46 +5,66 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm dev        # Start dev server (Next.js)
+pnpm dev        # Start dev server (localhost:3000)
 pnpm build      # Production build
 pnpm lint       # ESLint via next lint
-vercel --prod   # Deploy to production
 ```
 
-> **Deployment note:** If Vercel errors with "Git author must have access to the team", temporarily remove the `.git` folder before running `vercel --prod`.
+Deploy: `vercel --prod` (temporarily remove `.git/` folder if you hit a team access error — see README).
 
 ## Architecture
 
-This is a **Next.js 14 App Router** site (TypeScript + Tailwind CSS) serving as the marketing/landing site for AnyFikra's mobile apps.
+This is a **Next.js 14 App Router** site for AnyFikra, an indie app studio. It serves as the marketing website for multiple mobile apps, each with its own sub-section.
 
-### Routing pattern
+### Routing
 
-Each app gets its own directory under `app/` — currently `delulu-jar/`, `ducky-bank/`, `genie-laugh/`, and `storage-squeeze/`. The root `app/page.tsx` is the main homepage listing all apps.
+Each app gets a route group under `app/`:
+- `app/[app-name]/page.tsx` — main landing page
+- `app/[app-name]/privacy/page.tsx` — privacy policy
+- `app/[app-name]/contact/page.tsx` — contact/support page
 
-### Subdomain routing via middleware
+Current apps: `delulu-jar`, `ducky-bank`, `genie-laugh`, `storage-squeeze`
 
-[middleware.ts](middleware.ts) rewrites subdomain requests to the matching app route. For example, `delulu-jar.anyfikra.com/*` is internally rewritten to `/delulu-jar/*`. Any new app with subdomain access needs a rule added here.
+The `middleware.ts` rewrites subdomain requests (e.g. `ducky-bank.anyfikra.com`) to the corresponding route prefix, so subdomain and path-based routing both work.
 
-### Page structure
+### Shared Components
 
-Every app page follows the same pattern:
-- `"use client"` with a `mounted` state for CSS-based entrance animations (opacity + translateY on mount)
-- Fixed-position blurred gradient orbs for background atmosphere
-- Sections: header with back-nav → hero → features grid → CTA (App Store link) → footer
-- Inline `style={{ fontFamily: "'Syne', sans-serif" }}` for display headings (Syne is loaded via Google Fonts CDN, not via `next/font`)
+All reusable UI lives in `components/`:
 
-### Styling conventions
+| Component | Purpose |
+|---|---|
+| `PageShell` | Dark bg layout with configurable gradient "orbs" (decorative blur circles) |
+| `AppFooter` | Footer with Privacy Policy + Contact links; accepts accent color class |
+| `StoreButton` | App Store / Google Play badge using `simple-icons` SVG paths |
+| `SectionDivider` | Titled divider with accent color variant |
+| `FeatureCard` | Icon + title + description card with accent border |
+| `FeatureCheckItem` | Checkmark list item with colored check |
+| `HowItWorksStep` | Numbered step card for "how it works" sections |
+| `BackHeader` | Back navigation header for sub-pages |
 
-- Dark theme only: `bg-neutral-900` base, `text-neutral-50/300/400` text hierarchy
-- Tailwind utility classes throughout; no CSS modules or styled-components
-- Per-app accent color (rose = DeluluJar, amber = DuckyBank, cyan = Genie Laugh)
-- Hover states use `group` + `group-hover:` pattern on card wrappers
-- Transition durations use `duration-400` (custom) and `duration-300`/`duration-700`
+### Per-App Page Pattern
 
-### Static assets
+Each app landing page follows the same structure:
+1. Define `ORBS` array (color/size/position config for `PageShell`)
+2. Define data arrays (`HOW_IT_WORKS`, `FEATURES`, etc.) as constants at module level
+3. Render with `PageShell` → hero section → feature grid → how-it-works → `AppFooter`
 
-App icons live in `static/` (not `public/`). They are referenced as `/static/<filename>` in `<img>` tags. The `public/` folder contains only `app-ads.txt` (AdMob verification).
+Each app has its own accent color (rose = DeluluJar, amber = DuckyBank, cyan = GeenieLaugh, emerald = StorageSqueeze). Pass this color through `accentColor` props on components and `accentHoverClass` on `AppFooter`.
 
-### AdSense
+### Styling
 
-The Google AdSense script is loaded globally in [app/layout.tsx](app/layout.tsx) via `next/script` with the publisher ID `ca-pub-2578516293530627`.
+- **Tailwind CSS** with a dark theme — `bg-neutral-900` base, `neutral-50/100` text
+- Custom font: **Syne** (`font-syne`) for headings/labels; Inter for body
+- Custom animations in `tailwind.config.ts`: `animate-slide-up`, `animate-slide-up-delay`, `animate-slide-up-delay-2`, `animate-fade-in`
+- The home page (`app/page.tsx`) uses `"use client"` with `useState`/`useEffect` for mount animations — app sub-pages are server components
+
+### Static Assets
+
+App icons live in `/static/` (served directly): `icon-delulu-jar.png`, `icon-ducky-bank.png`, `icon-genie-laugh.png`. Reference them as `/static/filename.png`.
+
+### Adding a New App
+
+1. Create `app/[app-name]/page.tsx`, `privacy/page.tsx`, `contact/page.tsx`
+2. Add icon to `static/`
+3. Add subdomain rewrite to `middleware.ts`
+4. Add card to the homepage `app/page.tsx` "Current Projects" grid
