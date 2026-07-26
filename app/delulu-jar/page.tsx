@@ -93,9 +93,14 @@ const FEATURES = [
 export default function DeluluPage() {
   return (
     <PageShell orbs={ORBS}>
+      {/*
+        DeluluJar's legal pages live on delulujar.com — this site used to carry
+        its own copies and they drifted out of date. No contactHref: there is no
+        contact page for this app any more.
+      */}
       <AppNavBar
-        privacyHref="/delulu-jar/privacy"
-        contactHref="/delulu-jar/contact"
+        privacyHref="https://delulujar.com/privacy"
+        termsHref="https://delulujar.com/terms"
         accentHoverClass="hover:text-rose-400"
         accentBorderHoverClass="hover:border-rose-500/50"
       />
@@ -132,7 +137,7 @@ export default function DeluluPage() {
             />
             <StoreButton
               store="android"
-              href="https://play.google.com/store/apps/details?id=app.delulujar"
+              href="https://play.google.com/store/apps/details?id=com.delulujar"
               accentColor="rose"
             />
           </div>
@@ -144,7 +149,7 @@ export default function DeluluPage() {
           <FeatureCard
             icon={<Mail className="w-7 h-7 text-rose-400" />}
             title="Digital Love Notes"
-            description="Drop sweet messages, compliments, or fun thoughts — text, audio, images, and videos."
+            description="Drop sweet messages, compliments, or fun thoughts — with a photo or a voice note attached."
             accentColor="rose-500"
           />
           <FeatureCard
@@ -156,7 +161,7 @@ export default function DeluluPage() {
           <FeatureCard
             icon={<Lock className="w-7 h-7 text-rose-400" />}
             title="Private & Secure"
-            description="Your love notes are completely private. Securely stored with end-to-end privacy."
+            description="Only you and your partner can open your jar. Encrypted in transit and at rest."
             accentColor="rose-500"
           />
         </div>

@@ -1,14 +1,18 @@
-import { ChevronLeft, Lock, MessageCircle } from "lucide-react";
+import { ChevronLeft, FileText, Lock, MessageCircle } from "lucide-react";
 
 interface AppNavBarProps {
   privacyHref: string;
-  contactHref: string;
+  /** Optional — only the apps that publish their own terms pass this. */
+  termsHref?: string;
+  /** Optional — DeluluJar has no contact page here, so it omits this. */
+  contactHref?: string;
   accentHoverClass: string;
   accentBorderHoverClass?: string;
 }
 
 export default function AppNavBar({
   privacyHref,
+  termsHref,
   contactHref,
   accentHoverClass,
   accentBorderHoverClass = "hover:border-neutral-500/60",
@@ -25,16 +29,29 @@ export default function AppNavBar({
       <nav className="flex items-center gap-2">
         <a
           href={privacyHref}
+          aria-label="Privacy policy"
           className={`inline-flex items-center bg-neutral-800/60 border border-neutral-700/60 ${accentBorderHoverClass} ${accentHoverClass} text-neutral-400 p-2.5 rounded-xl transition-all duration-300 hover:bg-neutral-800 `}
         >
           <Lock className="w-4 h-4" />
         </a>
-        <a
-          href={contactHref}
-          className={`inline-flex items-center bg-neutral-800/60 border border-neutral-700/60 ${accentBorderHoverClass} ${accentHoverClass} text-neutral-400 p-2.5 rounded-xl transition-all duration-300 hover:bg-neutral-800 `}
-        >
-          <MessageCircle className="w-4 h-4" />
-        </a>
+        {termsHref && (
+          <a
+            href={termsHref}
+            aria-label="Terms of use"
+            className={`inline-flex items-center bg-neutral-800/60 border border-neutral-700/60 ${accentBorderHoverClass} ${accentHoverClass} text-neutral-400 p-2.5 rounded-xl transition-all duration-300 hover:bg-neutral-800 `}
+          >
+            <FileText className="w-4 h-4" />
+          </a>
+        )}
+        {contactHref && (
+          <a
+            href={contactHref}
+            aria-label="Contact"
+            className={`inline-flex items-center bg-neutral-800/60 border border-neutral-700/60 ${accentBorderHoverClass} ${accentHoverClass} text-neutral-400 p-2.5 rounded-xl transition-all duration-300 hover:bg-neutral-800 `}
+          >
+            <MessageCircle className="w-4 h-4" />
+          </a>
+        )}
       </nav>
     </header>
   );
