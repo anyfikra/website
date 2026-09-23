@@ -34,11 +34,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  if (subdomain === "storage-squeeze") {
-    url.pathname = `/storage-squeeze${url.pathname}`;
-    return NextResponse.rewrite(url);
-  }
-
   // Default to main site
   return NextResponse.next();
 }

@@ -136,19 +136,6 @@ export default function Home() {
                 accentIconShadow="shadow-amber-500/20"
                 accentText="text-amber-400"
               />
-              <AppCard
-                href="/genie-laugh"
-                icon="/static/icon-genie-laugh.png"
-                iconAlt="Genie Laugh"
-                category="Prank App"
-                name="Genie Laugh"
-                accentBorderHover="hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-500/10"
-                accentGradientFrom="from-cyan-500/8"
-                accentGradientVia="via-violet-500/4"
-                accentShadow="shadow-cyan-500/10"
-                accentIconShadow="shadow-cyan-500/20"
-                accentText="text-cyan-400"
-              />
             </div>
           </div>
         </section>

@@ -23,7 +23,7 @@ Each app gets a route group under `app/`:
 - `app/[app-name]/privacy/page.tsx` — privacy policy
 - `app/[app-name]/contact/page.tsx` — contact/support page
 
-Current apps: `delulu-jar`, `ducky-bank`, `genie-laugh`, `storage-squeeze`
+Current apps: `delulu-jar`, `ducky-bank`
 
 The `middleware.ts` rewrites subdomain requests (e.g. `ducky-bank.anyfikra.com`) to the corresponding route prefix, so subdomain and path-based routing both work.
 
@@ -49,7 +49,7 @@ Each app landing page follows the same structure:
 2. Define data arrays (`HOW_IT_WORKS`, `FEATURES`, etc.) as constants at module level
 3. Render with `PageShell` → hero section → feature grid → how-it-works → `AppFooter`
 
-Each app has its own accent color (rose = DeluluJar, amber = DuckyBank, cyan = GeenieLaugh, emerald = StorageSqueeze). Pass this color through `accentColor` props on components and `accentHoverClass` on `AppFooter`.
+Each app has its own accent color (rose = DeluluJar, amber = DuckyBank). Pass this color through `accentColor` props on components and `accentHoverClass` on `AppFooter`.
 
 ### Styling
 
@@ -60,7 +60,7 @@ Each app has its own accent color (rose = DeluluJar, amber = DuckyBank, cyan = G
 
 ### Static Assets
 
-App icons live in `/static/` (served directly): `icon-delulu-jar.png`, `icon-ducky-bank.png`, `icon-genie-laugh.png`. Reference them as `/static/filename.png`.
+App icons live in `/static/` (served directly): `icon-delulu-jar.png`, `icon-ducky-bank.png`. Reference them as `/static/filename.png`.
 
 ### Adding a New App
 
