@@ -1,5 +1,6 @@
 import { siApple, siGoogleplay } from "simple-icons";
 import { Globe } from "lucide-react";
+import TrackedLink from "./TrackedLink";
 
 interface StoreButtonProps {
   store: "ios" | "android" | "web";
@@ -31,7 +32,9 @@ export default function StoreButton({
   const borderHover = accentStyles[accentColor] ?? accentStyles.neutral;
 
   return (
-    <a
+    <TrackedLink
+      event="store_click"
+      eventParams={{ store, link_url: href }}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -51,6 +54,6 @@ export default function StoreButton({
       <span className="text-sm font-semibold">
         {label ?? defaultLabels[store]}
       </span>
-    </a>
+    </TrackedLink>
   );
 }

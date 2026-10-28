@@ -145,9 +145,17 @@ export default function Home() {
             <p className="text-xs text-neutral-600 font-syne tracking-wide">
               © 2025 AnyFikra. Built with care, one pixel at a time.
             </p>
-            <div className="flex items-center gap-1.5 text-xs text-neutral-700 font-syne">
-              <span>Made with</span>
-              <Heart className="w-3 h-3 text-rose-600 fill-rose-600" />
+            <div className="flex items-center gap-4 text-xs font-syne">
+              <a
+                href="/privacy"
+                className="text-neutral-600 hover:text-neutral-300 transition-colors tracking-wide"
+              >
+                Privacy Policy
+              </a>
+              <div className="flex items-center gap-1.5 text-neutral-700">
+                <span>Made with</span>
+                <Heart className="w-3 h-3 text-rose-600 fill-rose-600" />
+              </div>
             </div>
           </div>
         </footer>

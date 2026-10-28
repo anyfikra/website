@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+
+// Only set in Vercel's Production environment, so local and preview visits
+// stay out of the analytics data.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,6 +82,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">{children}</body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
