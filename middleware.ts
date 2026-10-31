@@ -30,7 +30,10 @@ export function middleware(request: NextRequest) {
   }
 
   if (subdomain === "ducky-bank") {
-    url.pathname = `/ducky-bank${url.pathname}`;
+    // Pages link to /ducky-bank/... directly; don't prefix those twice.
+    if (!url.pathname.startsWith("/ducky-bank")) {
+      url.pathname = `/ducky-bank${url.pathname}`;
+    }
     return NextResponse.rewrite(url);
   }
 
@@ -38,6 +41,10 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
+// Shared assets (images, icons, the share image) are served from the root on
+// every host, so subdomains must not rewrite them into an app's route.
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|static/|favicon.ico|icon|apple-icon|opengraph-image).*)",
+  ],
 };

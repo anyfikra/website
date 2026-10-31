@@ -1,0 +1,673 @@
+/* Project pages: one layout, with each project's own backdrop behind the top.
+   Colors use light-dark(), which follows the color-scheme globals.css sets for
+   the light, dark and system themes, so nothing here is written twice. */
+
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-lead {
+  position: relative;
+  padding-bottom: var(--lead-pad, 20px);
+}
+
+/* Taller than the content, so the backdrop fades out behind the screenshots. */
+.project-backdrop {
+  --gutter: 20px;
+  position: absolute;
+  inset: 0 0 var(--backdrop-over, -90px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Clicks pass through the empty right side to the backdrop (DeluluJar's jar). */
+.project-content {
+  position: relative;
+}
+
+.project-content,
+.project-content .wrap {
+  pointer-events: none;
+}
+
+.project-content .wrap > * {
+  pointer-events: auto;
+}
+
+/* The gap under the site header matches the homepage (pt-8 md:pt-12). Pages
+   with art at the top on phones set a bigger --head-gap to clear it. */
+.project-text {
+  max-width: min(640px, 60%);
+  margin-top: var(--head-gap, 32px);
+}
+
+@media (min-width: 768px) {
+  .project-text {
+    margin-top: var(--head-gap, 48px);
+  }
+}
+
+.project-column {
+  max-width: min(720px, 60%);
+}
+
+/* Section titles take the page's color. --title-band is the highlighter behind
+   them, which stays off in dark mode, like .marker. */
+.project-title {
+  padding: 0 0.02em;
+  color: var(--title);
+  background-image: linear-gradient(
+    transparent 52%,
+    var(--title-band) 52%,
+    var(--title-band) 82%,
+    transparent 82%
+  );
+}
+
+[data-project="bourseiq"] {
+  --title: light-dark(#1f4e9e, #a9c6f5);
+  --title-band: light-dark(#c3d6f7, transparent);
+}
+
+[data-project="keepen"] {
+  --title: light-dark(#0b5a9e, #a8dcff);
+  --title-band: light-dark(rgb(255 255 255 / 0.65), transparent);
+}
+
+[data-project="macinroid"] {
+  --title: light-dark(#0b7a57, #6fe3b6);
+  --title-band: light-dark(#b5f0d4, transparent);
+}
+
+[data-project="react-native-here-explore"] {
+  --title: light-dark(#0f766a, #5fd8c4);
+  --title-band: light-dark(#bfeae2, transparent);
+}
+
+[data-project="delulu-jar"] {
+  --title: light-dark(#c2185f, #ff9ac6);
+  --title-band: light-dark(#ffc4dd, transparent);
+}
+
+/* Yellow text can't be read on the white below the wave, so light mode uses
+   the duck's black with a yolk band. */
+[data-project="ducky-bank"] {
+  --title: light-dark(#17171a, #ffc72c);
+  --title-band: light-dark(#ffc72c, transparent);
+}
+
+.backdrop-inner {
+  position: relative;
+  height: 100%;
+}
+
+@keyframes backdrop-bob {
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@media (min-width: 640px) {
+  .project-backdrop {
+    --gutter: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .project-text,
+  .project-column {
+    max-width: none;
+  }
+}
+
+/* BourseIQ: the price line */
+
+.bd-bourse {
+  background: linear-gradient(
+    light-dark(#e3edfc, #0b2560) 0,
+    light-dark(#eef4fe, #0d2149) 58%,
+    transparent 100%
+  );
+}
+
+[data-project="bourseiq"] {
+  --lead-pad: 40px;
+}
+
+/* Starts in the gap between the description and the Screenshots title. */
+.bd-bourse svg {
+  position: absolute;
+  left: 0;
+  bottom: 62px;
+  width: 100%;
+  height: 76%;
+}
+
+.bd-bourse .line {
+  fill: none;
+  stroke: light-dark(#1f4e9e, #a9c6f5);
+  stroke-width: 2.5;
+  animation: bourse-draw 2.2s cubic-bezier(0.4, 0.1, 0.2, 1) both;
+}
+
+.bd-bourse stop {
+  stop-color: light-dark(#1f4e9e, #a9c6f5);
+}
+
+@keyframes bourse-draw {
+  from {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Keepen: the ocean, down the whole page */
+
+[data-project="keepen"] {
+  --mute: 45 90 120;
+  background: linear-gradient(
+    180deg,
+    light-dark(#7fcdf5, #0f64b4) 0,
+    light-dark(#b3e3fa, #0b4a8e) 34%,
+    light-dark(#d6f0fc, #07336c) 70%,
+    light-dark(#eaf8fe, #042250) 100%
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-project="keepen"] {
+    --mute: 188 220 242;
+  }
+}
+
+:root[data-theme="dark"] [data-project="keepen"] {
+  --mute: 188 220 242;
+}
+
+[data-project="keepen"] .project-lead {
+  position: static;
+}
+
+.bd-ocean {
+  inset: 0;
+}
+
+.bd-ocean .rays {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 720px;
+  background: repeating-linear-gradient(
+    100deg,
+    transparent 0 90px,
+    rgb(255 255 255 / 0.16) 90px 140px,
+    transparent 140px 260px
+  );
+  -webkit-mask-image: linear-gradient(#000, transparent);
+  mask-image: linear-gradient(#000, transparent);
+}
+
+.bd-ocean .bubble {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1.5px rgb(255 255 255 / 0.6),
+    inset 3px 3px 5px rgb(255 255 255 / 0.35);
+  animation: ocean-rise linear infinite;
+}
+
+@keyframes ocean-rise {
+  to {
+    transform: translate(24px, -1700px);
+  }
+}
+
+.bd-ocean .sticker {
+  position: absolute;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: #fff;
+  color: #123;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 10px 18px -6px rgb(0 30 70 / 0.45);
+  animation: backdrop-bob 5s ease-in-out infinite;
+}
+
+.bd-ocean .sticker i {
+  font-style: normal;
+  color: #f26a1b;
+}
+
+/* Macinroid: the desktop */
+
+[data-project="macinroid"] {
+  --backdrop-over: -70px;
+}
+
+.bd-desktop {
+  background:
+    radial-gradient(
+      60% 95% at 88% 8%,
+      light-dark(#a6efcd, #22a87c) 0,
+      transparent 72%
+    ),
+    radial-gradient(
+      70% 80% at 6% 0,
+      light-dark(#d4f7e7, #0f6b4e) 0,
+      transparent 74%
+    ),
+    light-dark(#e8faf1, #0a4a37);
+  -webkit-mask-image: linear-gradient(#000 74%, transparent);
+  mask-image: linear-gradient(#000 74%, transparent);
+}
+
+.mac-menu {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  padding: 5px var(--gutter, 20px);
+  background: rgb(var(--canvas) / 0.45);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  font-size: 13px;
+}
+
+@media (min-width: 640px) {
+  .mac-menu {
+    --gutter: 32px;
+  }
+}
+
+.mac-copy {
+  position: absolute;
+  right: var(--gutter);
+  top: 118px;
+  width: min(340px, 36%);
+  padding: 13px 15px 15px;
+  border-radius: 14px;
+  background: rgb(var(--canvas) / 0.62);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  box-shadow:
+    0 24px 44px -22px rgb(3 50 35 / 0.7),
+    inset 0 0 0 0.5px rgb(255 255 255 / 0.5);
+  font-size: 13px;
+}
+
+.mac-copy .dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.mac-copy .dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.mac-copy .dots i + i {
+  background: #febc2e;
+}
+
+.mac-copy .dots i + i + i {
+  background: #28c840;
+}
+
+.mac-copy .bar {
+  display: block;
+  height: 6px;
+  margin-block: 9px 7px;
+  border-radius: 3px;
+  background: rgb(var(--ink) / 0.14);
+  overflow: hidden;
+}
+
+.mac-copy .bar i {
+  display: block;
+  height: 100%;
+  background: #28c840;
+  animation: mac-copy 7s ease-in-out infinite;
+}
+
+@keyframes mac-copy {
+  from {
+    width: 8%;
+  }
+  80%,
+  to {
+    width: 100%;
+  }
+}
+
+/* here-explore: the map demo */
+
+[data-project="react-native-here-explore"] {
+  --backdrop-over: -30px;
+}
+
+.bd-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bd-map .scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(var(--canvas)) 34%,
+      rgb(var(--canvas) / 0.72) 50%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, transparent 74%, rgb(var(--canvas)) 100%);
+}
+
+.map-land {
+  fill: light-dark(#e6f2ee, #0d2a2c);
+}
+
+.map-river {
+  fill: none;
+  stroke: light-dark(#bcdcea, #143c4a);
+  stroke-width: 34;
+}
+
+.map-park {
+  fill: light-dark(#cde8d2, #123a33);
+}
+
+.map-street {
+  fill: none;
+  stroke: light-dark(#cfe2dd, #245255);
+  stroke-width: 2;
+}
+
+.map-avenue {
+  fill: none;
+  stroke: light-dark(#b2d0c8, #37706f);
+  stroke-width: 4.5;
+}
+
+.map-route {
+  fill: none;
+  stroke: light-dark(#2563eb, #7aa7ff);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.map-route-solid {
+  stroke-dasharray: 1;
+  animation: map-draw 0.9s cubic-bezier(0.3, 0.7, 0.3, 1) both;
+}
+
+.map-route-dashed {
+  stroke-dasharray: 0.004 0.02;
+}
+
+@keyframes map-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.map-start {
+  fill: light-dark(#128a78, #5fd8c4);
+}
+
+.map-end {
+  fill: light-dark(#17171a, #fff);
+}
+
+.map-hole {
+  fill: light-dark(#fff, #0b2224);
+}
+
+.map-modes {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: min(760px, calc(100vw - 40px));
+  margin-top: 16px;
+}
+
+.map-modes button {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgb(var(--canvas) / 0.74);
+  box-shadow: inset 0 0 0 1px rgb(var(--ink) / 0.14);
+  font-size: 13.5px;
+}
+
+.map-modes button[aria-pressed="true"] {
+  background: light-dark(#2563eb, #7aa7ff);
+  color: rgb(var(--canvas));
+  box-shadow: none;
+  font-weight: 500;
+}
+
+/* DeluluJar: the jar */
+
+.bd-jar {
+  background:
+    radial-gradient(
+      52% 88% at 84% 26%,
+      light-dark(#ffd2e8, #5a2553) 0,
+      transparent 74%
+    ),
+    radial-gradient(
+      60% 80% at 14% 0,
+      light-dark(#fff0f7, #2b1738) 0,
+      transparent 76%
+    ),
+    linear-gradient(light-dark(#ffeaf4, #22132c), transparent);
+}
+
+.jar-button {
+  position: absolute;
+  right: calc(var(--gutter) + 10px);
+  top: 50px;
+  width: min(270px, 27%);
+  border-radius: 30px;
+  pointer-events: auto;
+}
+
+.jar-button img {
+  width: 100%;
+  filter: drop-shadow(0 22px 18px rgb(150 40 100 / 0.24));
+}
+
+.jar-shaking {
+  animation: jar-shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes jar-shake {
+  10%,
+  90% {
+    transform: translate(-2px, 1px) rotate(-3deg);
+  }
+  25%,
+  75% {
+    transform: translate(8px, -3px) rotate(6deg);
+  }
+  40%,
+  60% {
+    transform: translate(-10px, 3px) rotate(-7deg);
+  }
+  50% {
+    transform: translate(10px, -2px) rotate(7deg);
+  }
+}
+
+.jar-note {
+  position: absolute;
+  right: calc(var(--gutter) + 22%);
+  top: 130px;
+  width: min(216px, 20%);
+  padding: 13px 15px;
+  color: #2d2031;
+  box-shadow: 0 12px 20px -12px rgb(90 20 60 / 0.55);
+  transform: rotate(-3deg);
+  font: 500 23px/1.08 var(--font-hand), cursive;
+  animation: jar-note 0.42s cubic-bezier(0.2, 1.5, 0.5, 1);
+}
+
+@keyframes jar-note {
+  from {
+    transform: translateY(40px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.jar-hint {
+  position: absolute;
+  right: calc(var(--gutter) + 10px);
+  top: 320px;
+  width: min(270px, 27%);
+  text-align: center;
+  font: 500 22px var(--font-hand), cursive;
+  color: rgb(var(--mute));
+}
+
+/* Ducky Bank: the duck on the water */
+
+[data-project="ducky-bank"] {
+  --lead-pad: 112px;
+  --backdrop-over: 0px;
+}
+
+[data-project="ducky-bank"] .project-lead {
+  --mute: 59 59 64;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-project="ducky-bank"] .project-lead {
+    --mute: 161 161 170;
+  }
+}
+
+:root[data-theme="dark"] [data-project="ducky-bank"] .project-lead {
+  --mute: 161 161 170;
+}
+
+.bd-duck {
+  background: light-dark(#ffc72c, #1b1c20);
+}
+
+.bd-duck .wave {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  z-index: 2;
+  width: 100%;
+  height: 92px;
+}
+
+.bd-duck .water {
+  fill: rgb(var(--canvas));
+}
+
+.bd-duck .crest {
+  fill: none;
+  stroke: light-dark(transparent, #ffc72c);
+  stroke-width: 3;
+}
+
+.bd-duck .duck {
+  position: absolute;
+  right: calc(var(--gutter) + 30px);
+  bottom: -112px;
+  width: min(330px, 33%);
+  animation: backdrop-bob 4.4s ease-in-out infinite;
+}
+
+@media (max-width: 860px) {
+  .bd-bourse .line {
+    opacity: 0.3;
+  }
+
+  .bd-bourse .area,
+  .bd-ocean .sticker,
+  .mac-copy,
+  .jar-hint {
+    display: none;
+  }
+
+  [data-project="react-native-here-explore"],
+  [data-project="delulu-jar"],
+  [data-project="ducky-bank"] {
+    --head-gap: 118px;
+  }
+
+  /* Below the site header, so the route doesn't run through the menu. */
+  .bd-map {
+    background: light-dark(#e6f2ee, #0d2a2c);
+  }
+
+  .bd-map svg {
+    top: 40px;
+    height: 200px;
+  }
+
+  .bd-map .scrim {
+    background: linear-gradient(
+      180deg,
+      transparent 0,
+      rgb(var(--canvas) / 0.78) 170px,
+      rgb(var(--canvas)) 230px
+    );
+  }
+
+  .jar-button {
+    top: 58px;
+    right: var(--gutter);
+    width: 112px;
+  }
+
+  .jar-note {
+    top: 72px;
+    right: calc(var(--gutter) + 110px);
+    width: 190px;
+    padding: 9px 11px;
+    font-size: 20px;
+  }
+
+  .bd-duck .duck {
+    top: 52px;
+    bottom: auto;
+    right: var(--gutter);
+    width: 118px;
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1100px) {
+  .jar-note {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-backdrop *,
+  .project-backdrop *::before,
+  .project-backdrop *::after {
+    animation: none !important;
+  }
+}
