@@ -1,4 +1,5 @@
 export const CONTACT_EMAIL = "support@anyfikra.com";
+export const PERSONAL_EMAIL = "ajakka.abderrahim@gmail.com";
 export const GITHUB_URL = "https://github.com/anyfikra";
 
 export type LinkKind =

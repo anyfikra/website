@@ -17,10 +17,7 @@ export default function Home() {
               as a <em className="marker">fikra</em>.
             </h1>
             <p className="mt-6 max-w-xl text-xl leading-snug text-mute motion-safe:animate-rise motion-safe:[animation-delay:200ms] md:mt-8 md:text-2xl">
-              Hobby projects I design and build{" "}
-              <a href="/about" className="link text-ink">
-                myself
-              </a>
+              Hi, I’m <a href="/about" className="link text-ink"><em className="marker">Abderrahim Ajakka</em></a>, and this is my personal brand where I share the hobby projects I design and build.
             </p>
           </div>
           <div className="border-y border-ink py-5 motion-safe:animate-rise motion-safe:[animation-delay:280ms] md:col-span-5 md:col-start-8 md:self-end">
