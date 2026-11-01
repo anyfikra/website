@@ -20,7 +20,7 @@ This is a **Next.js 14 App Router** site for AnyFikra, a one-person studio ("fik
 
 `lib/projects.ts` is the single source of truth. `PROJECTS` drives the homepage bento (order = display order). Each project's `tile` sets its size (`full`, `half` or `third` of a row): keep the rows adding up to 6 columns, in order, so the grid has no holes. Each project's `details` object fills its page at `app/<slug>/page.tsx`, which renders `<ProjectPage slug="..." backdrop={...} />`. Every project page has the same layout (icon, name and subtitle, links, Description, Built with, Screenshots); only the backdrop behind the top differs, and it comes from `components/backdrops/`. Keep the layout shared and put anything unique in the backdrop.
 
-Pages: `bourseiq`, `keepen`, `macinroid`, `react-native-here-explore`, `delulu-jar`, `ducky-bank` (plus `ducky-bank/privacy` and `ducky-bank/contact`). `app/about/page.tsx` is the about page, linked from the word "my" in the homepage hero. DeluluJar's legal pages live on delulujar.com; `next.config.js` and `middleware.ts` redirect the old paths there.
+Pages: `bourseiq`, `keepen`, `macinroid`, `react-native-here-explore`, `delulu-jar`, `ducky-bank` (plus `ducky-bank/privacy` and `ducky-bank/contact`). `app/about/page.tsx` is the about page, linked from the word "my" in the homepage hero. DeluluJar's legal pages live on delulujar.anyfikra.com; `next.config.js` and `middleware.ts` redirect the old paths there.
 
 `middleware.ts` rewrites subdomain requests (e.g. `ducky-bank.anyfikra.com`) to the matching route prefix. Paths that already carry the prefix, `/static/*` and the root metadata files (`/icon.svg`, `/apple-icon.png`, `/opengraph-image`) are left alone.
 

@@ -317,11 +317,11 @@ export const PROJECTS: Project[] = [
         },
         { label: "Website", items: ["Next.js", "TypeScript", "Tailwind CSS"] },
       ],
-      // DeluluJar's legal pages live on delulujar.com. There is no contact
+      // DeluluJar's legal pages live on delulujar.anyfikra.com. There is no contact
       // page for it on this site any more.
       legal: [
-        { label: "Privacy policy", href: "https://delulujar.com/privacy" },
-        { label: "Terms of use", href: "https://delulujar.com/terms" },
+        { label: "Privacy policy", href: "https://delulujar.anyfikra.com/privacy" },
+        { label: "Terms of use", href: "https://delulujar.anyfikra.com/terms" },
       ],
     },
   },
