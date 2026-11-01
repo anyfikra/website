@@ -14,7 +14,7 @@ export default function About() {
       <SiteHeader />
       <main className="wrap pb-24 pt-8 md:pb-32 md:pt-12">
         <h1 className="mt-5 font-display text-[clamp(2.6rem,6.2vw,5.5rem)] leading-[0.98] tracking-[-0.035em]">
-          Hi, I’m <em className="marker">Abderrahim</em>.
+          Hi, I’m <em className="marker">Abderrahim Ajakka</em>.
         </h1>
         <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-mute md:mt-12">
           <p>
