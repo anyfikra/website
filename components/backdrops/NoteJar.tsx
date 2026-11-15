@@ -36,7 +36,7 @@ export default function NoteJar() {
           className="jar-button"
         >
           <img
-            src="/static/delulu-jar/jar.png"
+            src="/delulu-jar/jar.png"
             alt=""
             width={640}
             height={640}

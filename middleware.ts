@@ -28,9 +28,10 @@ export function middleware(request: NextRequest) {
 }
 
 // Shared assets (images, icons, the share image) are served from the root on
-// every host, so subdomains must not rewrite them into an app's route.
+// every host, so subdomains must not rewrite them into an app's route. Any path
+// with a file extension is an asset from public/ (page routes have none).
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|static/|favicon.ico|icon|apple-icon|opengraph-image).*)",
+    "/((?!api|_next/|favicon.ico|icon|apple-icon|opengraph-image|.*\\..*).*)",
   ],
 };

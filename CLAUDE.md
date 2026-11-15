@@ -22,7 +22,7 @@ This is a **Next.js 14 App Router** site for AnyFikra, a one-person studio ("fik
 
 Pages: `bourseiq`, `keepen`, `macinroid`, `react-native-here-explore`, `delulu-jar`, `ducky-bank` (plus `ducky-bank/privacy` and `ducky-bank/contact`). `app/about/page.tsx` is the about page, linked from the word "my" in the homepage hero. DeluluJar's legal pages live on delulujar.anyfikra.com; `next.config.js` and `middleware.ts` redirect the old paths there.
 
-`middleware.ts` rewrites subdomain requests (e.g. `ducky-bank.anyfikra.com`) to the matching route prefix. Paths that already carry the prefix, `/static/*` and the root metadata files (`/icon.svg`, `/apple-icon.png`, `/opengraph-image`) are left alone.
+`middleware.ts` rewrites subdomain requests (e.g. `ducky-bank.anyfikra.com`) to the matching route prefix. Paths that already carry the prefix, any path with a file extension (assets from `public/`) and the root metadata files (`/icon.svg`, `/apple-icon.png`, `/opengraph-image`) are left alone.
 
 ### Components
 
@@ -54,11 +54,11 @@ Pages: `bourseiq`, `keepen`, `macinroid`, `react-native-here-explore`, `delulu-j
 
 ### Static assets
 
-Served from `/static/` (Next's deprecated `static/` dir, still working). Index icons are 256px copies in `static/icons/<slug>.png|svg`; the full-size originals `static/icon-*.png` are kept. Screenshots are `static/<slug>/01–04.webp` (BourseIQ's folder is `bourse-iq`); Macinroid's are `browse.webp` and `transfer.webp`, with transparent corners.
+Live in `public/` and are served from the root (`/icons/keepen.png`, `/keepen/01.webp`). Index icons are 256px copies in `public/icons/<slug>.png|svg`; the full-size originals `public/icon-*.png` are kept. Screenshots are `public/<slug>/01–04.webp` (BourseIQ's folder is `bourse-iq`); Macinroid's are `browse.webp` and `transfer.webp`, with transparent corners.
 
 ### Adding a new project
 
-1. Add an entry to `PROJECTS` in `lib/projects.ts` (with its `accent`, `tile` and `shots`), a 256px icon to `static/icons/` and screenshots to `static/<slug>/`.
+1. Add an entry to `PROJECTS` in `lib/projects.ts` (with its `accent`, `tile` and `shots`), a 256px icon to `public/icons/` and screenshots to `public/<slug>/`.
 2. Fill in `details` (including `screenshotAlts`, one description per screenshot, and `screenshotSize` in pixels; homepage tiles use `alt=""` because the title link already names them), add any new technologies to `TechIcon`, give it a backdrop and title colors in `components/backdrops/`, create `app/<slug>/page.tsx` rendering `ProjectPage`, and add a subdomain rewrite to `middleware.ts` if it gets one.
 
 ### Analytics

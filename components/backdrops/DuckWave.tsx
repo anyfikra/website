@@ -6,7 +6,7 @@ export default function DuckWave() {
   return (
     <div className="project-backdrop bd-duck">
       <img
-        src="/static/ducky-bank/duck.png"
+        src="/ducky-bank/duck.png"
         alt=""
         width={640}
         height={640}

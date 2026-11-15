@@ -64,7 +64,7 @@ export interface Project {
 }
 
 const screenshots = (slug: string) =>
-  ["01", "02", "03", "04"].map((n) => `/static/${slug}/${n}.webp`);
+  ["01", "02", "03", "04"].map((n) => `/${slug}/${n}.webp`);
 
 export const PROJECTS: Project[] = [
   {
@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
     blurb: "Your Casablanca portfolio, at a glance.",
     summary:
       "A portfolio tracker for the Casablanca Stock Exchange, with price alerts, a home-screen widget and a broker-fee calculator. Independent: no trading, no investment advice.",
-    icon: "/static/icons/bourse-iq.png",
+    icon: "/icons/bourse-iq.png",
     accent: "#1F4E9E",
     tile: "full",
     shots: screenshots("bourse-iq").slice(0, 3),
@@ -127,11 +127,11 @@ export const PROJECTS: Project[] = [
     blurb: "A memory for the people you love.",
     summary:
       "Keep the birthday, the allergy and the gift they mentioned once. Everything stays on your device, with no account and no cloud.",
-    icon: "/static/icons/keepen.png",
+    icon: "/icons/keepen.png",
     accent: "#F26A1B",
     warmAccent: true,
     tile: "half",
-    shots: ["01", "02", "03"].map((n) => `/static/keepen/${n}.webp`),
+    shots: ["01", "02", "03"].map((n) => `/keepen/${n}.webp`),
     links: [
       { kind: "website", href: "https://keepen.anyfikra.com" },
       {
@@ -180,10 +180,10 @@ export const PROJECTS: Project[] = [
     blurb: "Android files, the Mac way.",
     summary:
       "Browse your phone in a Finder-style window and drag files across over USB, with no drivers or helper apps.",
-    icon: "/static/icons/macinroid.png",
+    icon: "/icons/macinroid.png",
     accent: "#128A63",
     tile: "half",
-    shots: ["/static/macinroid/browse.webp", "/static/macinroid/transfer.webp"],
+    shots: ["/macinroid/browse.webp", "/macinroid/transfer.webp"],
     landscapeShots: true,
     links: [
       { kind: "website", href: "https://macinroid.anyfikra.com" },
@@ -193,15 +193,15 @@ export const PROJECTS: Project[] = [
       subtitle: "Android file transfer for the Mac",
       description:
         "Macinroid is a native macOS app for moving photos, videos and files between a Mac and an Android phone over USB. Plug in the phone and its storage opens in a Finder-style window, with drag and drop, thumbnails and Quick Look. There are no drivers or helper apps to install, and it’s free and open source.",
-      screenshots: ["/static/macinroid/browse.webp", "/static/macinroid/transfer.webp"],
+      screenshots: ["/macinroid/browse.webp", "/macinroid/transfer.webp"],
       screenshotAlts: [
         "Finder-style window showing the phone’s Camera folder as photo thumbnails",
         "List of the phone’s folders with a file copy in progress",
       ],
       screenshotSize: { width: 1200, height: 756 },
       darkScreenshots: [
-        "/static/macinroid/browse-dark.webp",
-        "/static/macinroid/transfer-dark.webp",
+        "/macinroid/browse-dark.webp",
+        "/macinroid/transfer-dark.webp",
       ],
       tech: [
         {
@@ -220,11 +220,11 @@ export const PROJECTS: Project[] = [
     blurb: "HERE Maps for React Native.",
     summary:
       "HERE Maps for React Native: map schemes, markers, polylines, polygons and routing across ten transport modes.",
-    icon: "/static/icons/react-native-here-explore.svg",
+    icon: "/icons/react-native-here-explore.svg",
     accent: "#1C7C8C",
     tile: "third",
     shots: [
-      "/static/react-native-here-explore/routing.webp",
+      "/react-native-here-explore/routing.webp",
     ],
     links: [
       { kind: "docs", href: "https://react-native-here-explore.anyfikra.com" },
@@ -238,10 +238,10 @@ export const PROJECTS: Project[] = [
       description:
         "An open-source library that brings the HERE SDK Explore Edition to React Native, built from scratch in Kotlin and Swift on the New Architecture. It covers interactive maps, custom markers, polylines, polygons and routing across ten transport modes, with a useRouting hook and an Expo config plugin.",
       screenshots: [
-        "/static/react-native-here-explore/routing.webp",
-        "/static/react-native-here-explore/routing-car.webp",
-        "/static/react-native-here-explore/polyline.webp",
-        "/static/react-native-here-explore/map-day.webp",
+        "/react-native-here-explore/routing.webp",
+        "/react-native-here-explore/routing-car.webp",
+        "/react-native-here-explore/polyline.webp",
+        "/react-native-here-explore/map-day.webp",
       ],
       screenshotAlts: [
         "Walking route across Berlin with a picker for the transport mode",
@@ -280,7 +280,7 @@ export const PROJECTS: Project[] = [
     blurb: "A private jar for two.",
     summary:
       "A private jar for two. Drop little notes for your partner, then shake the jar for a surprise.",
-    icon: "/static/icons/delulu-jar.png",
+    icon: "/icons/delulu-jar.png",
     accent: "#E884B6",
     tile: "third",
     shots: screenshots("delulu-jar").slice(0, 1),
@@ -334,7 +334,7 @@ export const PROJECTS: Project[] = [
     blurb: "An expense tracker with a rubber duck for a guide.",
     summary:
       "An expense tracker with a rubber duck for a guide. Offline-first, with clear reports and achievements that make saving a habit.",
-    icon: "/static/icons/ducky-bank.png",
+    icon: "/icons/ducky-bank.png",
     accent: "#F4C21F",
     warmAccent: true,
     tile: "third",
